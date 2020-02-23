@@ -22,21 +22,17 @@ public class Main {
 			if(temp.length() == 0) {
 				break;
 			}
-			if(list.size() != 0) {
-				for(int i = 0; i < list.size(); ++ i) {
-					if(list.get(i).getWord().equals(temp)){
-						System.out.println("pumasok sa meron");
-						list.get(i).increment();
-						break;
-					}else {
-						System.out.println("pumasok sa wala");
-						WordInstance instance = new WordInstance(temp);
-						list.add(instance);
-						break;
-					}
+			
+			boolean rep = false;
+			for(int i = 0; i < list.size(); ++i) {
+				if(list.get(i).getWord().equals(temp)){
+					System.out.println("pumasok sa meron");
+					list.get(i).increment();
+					rep = true;
 				}
-			} else {
-				System.out.println("gumawa ng sinauna");
+			}
+			
+			if(!rep) {
 				WordInstance instance = new WordInstance(temp);
 				list.add(instance);
 			}
